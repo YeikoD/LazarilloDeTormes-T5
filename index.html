@@ -74,7 +74,7 @@
   .brand span{color:rgba(201,162,39,.55)}
 
   .credit{
-    display:flex;align-items:center;gap:12px;
+    display:flex;flex-direction:column;align-items:flex-end;gap:4px;
     opacity:0;visibility:hidden;transform:translateY(-6px);
     transition:opacity .5s ease,transform .5s ease,visibility 0s linear .5s;
   }
@@ -87,7 +87,7 @@
     text-transform:uppercase;color:rgba(241,230,207,.55);white-space:nowrap;
   }
   .credit__link{
-    padding:7px 13px;font-size:.56rem;letter-spacing:.16em;
+    padding:2px 6px;font-size:.46rem;letter-spacing:.06em;gap:3px;
     color:var(--gold-2);border-color:rgba(232,201,121,.45);
     background:rgba(201,162,39,.08);text-decoration:none;white-space:nowrap;
   }
@@ -95,7 +95,7 @@
     color:#fff3d0;border-color:var(--gold-2);
     background:rgba(201,162,39,.18);
   }
-  .credit__link svg{display:block;width:10px;height:10px}
+  .credit__link svg{display:block;width:7px;height:7px}
 
   .btn{
     display:inline-flex;align-items:center;gap:9px;
@@ -103,7 +103,7 @@
     border:1px solid var(--line);background:rgba(12,10,7,.55);
     color:rgba(241,230,207,.8);
     font-family:var(--display);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-    cursor:pointer;backdrop-filter:blur(8px);
+    cursor:pointer;backdrop-filter:blur(8px);text-decoration:none;
     transition:border-color .3s,background .3s,color .3s,transform .3s;
   }
   .btn:hover{border-color:rgba(232,201,121,.6);color:#fff8e6;background:rgba(201,162,39,.1)}
@@ -296,6 +296,39 @@
   }
   .end__text{margin:0;font-size:clamp(1.1rem,1.4vw,1.3rem);font-style:italic;color:var(--parch-dim);text-align:center;max-width:44ch}
   .end__text strong{font-style:normal;font-weight:500;color:var(--gold-2)}
+  .end__layout{
+    position:relative;min-height:100%;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .slide--end .scene{
+    min-height:0;width:100%;align-items:center;text-align:center;
+  }
+  .end__credit{
+    position:absolute;top:clamp(-62px,-6.2vh,-30px);right:clamp(-54px,-3.2vw,-9px);z-index:2;
+    display:flex;flex-direction:column;align-items:flex-end;gap:2px;
+    padding-right:14px;border-right:1px solid rgba(201,162,39,.35);
+    text-align:right;
+  }
+  .end__credit-eyebrow{
+    margin:0 0 4px;font-family:var(--display);font-size:.58rem;
+    letter-spacing:.28em;text-transform:uppercase;color:rgba(241,230,207,.38);
+  }
+  .end__credit-name{
+    margin:0;font-family:var(--display);font-size:.76rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold-2);
+  }
+  .end__credit-line{
+    margin:0;font-size:.86rem;line-height:1.5;color:rgba(241,230,207,.55);
+  }
+  .end__credit-date{
+    margin:7px 0 0;font-family:var(--display);font-size:.52rem;
+    letter-spacing:.16em;text-transform:uppercase;color:rgba(241,230,207,.32);
+  }
+  .end__actions{
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .end__actions .btn{white-space:nowrap}
+  .end__actions .btn svg{display:block;width:12px;height:12px}
 
   /* ---------- adaptación ---------- */
   @media (max-width:1180px){
@@ -321,17 +354,19 @@
     .navbtn{width:40px;height:40px}
     .stage__caption{left:20px;bottom:104px}
     .stage__title{font-size:1.05rem}
-    .credit{gap:8px}
+    .credit{gap:4px}
     .credit__label{font-size:.5rem;letter-spacing:.1em}
-    .credit__link{padding:6px 9px;font-size:.5rem;letter-spacing:.1em}
+    .credit__link{padding:2px 6px;font-size:.46rem;letter-spacing:.06em}
+    .end__credit-name{font-size:.7rem}
+    .end__credit-line{font-size:.82rem}
   }
   @media (max-width:520px){
     .brand{font-size:.5rem;letter-spacing:.12em;gap:6px}
     .topbar{padding:12px 14px 8px;gap:10px}
-    .credit{gap:6px}
+    .credit{gap:4px}
     .credit__label{font-size:.45rem;letter-spacing:.06em}
-    .credit__link{padding:6px 8px;font-size:.46rem;letter-spacing:.08em;gap:5px}
-    .credit__link svg{width:9px;height:9px}
+    .credit__link{padding:2px 5px;font-size:.43rem;letter-spacing:.05em;gap:2px}
+    .credit__link svg{width:7px;height:7px}
   }
   @media (orientation:portrait){
     .stage video,.stage img{object-fit:contain}
@@ -364,8 +399,8 @@
   </button>
   <div class="credit">
     <span class="credit__label">Por Anderson Correa</span>
-    <a class="btn credit__link" href="https://yeikod.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Abrir el portafolio de Anderson Correa en una pestaña nueva">
-      Portafolio
+    <a class="btn credit__link" href="https://yeikod.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Ver los proyectos de Anderson Correa en una pestaña nueva">
+      Ver Proyectos
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
     </a>
   </div>
@@ -380,7 +415,7 @@
       <h1 class="cover__title reveal" style="--i:1">El buldero</h1>
       <div class="rule reveal" style="--i:2" aria-hidden="true"><span></span><i>✦</i><span></span></div>
       <p class="cover__sub reveal" style="--i:3">Tratado quinto · Narración y presentación</p>
-      <p class="cover__meta reveal" style="--i:4">Parcial de Literatura</p>
+      <p class="cover__meta reveal" style="--i:4">Parcial de Literatura 4to</p>
     </div>
   </section>
 
@@ -673,14 +708,28 @@
   </section>
 
   <!-- 24 · CIERRE -->
-  <section class="slide" aria-roledescription="diapositiva" aria-label="Fin de la presentación">
-    <div class="scene scene--solo">
-      <p class="cover__eyebrow reveal" style="--i:0">Lazarillo de Tormes · Tratado V</p>
-      <h2 class="end__title reveal" style="--i:1">Fin</h2>
-      <div class="rule reveal" style="--i:2" aria-hidden="true"><span></span><i>✦</i><span></span></div>
-      <p class="end__text reveal" style="--i:3">Aquí termina el relato del <strong>buldero</strong>, quinto amo de Lázaro.</p>
-      <div class="reveal" style="--i:4">
-        <button class="btn btn--gold" id="restartBtn">Volver al inicio</button>
+  <section class="slide slide--end" aria-roledescription="diapositiva" aria-label="Fin de la presentación">
+    <div class="end__layout">
+      <div class="end__credit reveal" style="--i:5">
+        <p class="end__credit-eyebrow">Presentado por</p>
+        <p class="end__credit-name">Anderson Correa</p>
+        <p class="end__credit-line">Profa. Alejandra Cañete</p>
+        <p class="end__credit-line">Literatura 4-1 · Plan 1994</p>
+        <p class="end__credit-line">Liceo 45 Víctor Bersanelli</p>
+        <p class="end__credit-date">27 de octubre del 2026</p>
+      </div>
+      <div class="scene scene--solo">
+        <p class="cover__eyebrow reveal" style="--i:0">Lazarillo de Tormes · Tratado V</p>
+        <h2 class="end__title reveal" style="--i:1">Fin</h2>
+        <div class="rule reveal" style="--i:2" aria-hidden="true"><span></span><i>✦</i><span></span></div>
+        <p class="end__text reveal" style="--i:3">Aquí termina el relato del <strong>buldero</strong>, quinto amo de Lázaro.</p>
+        <div class="reveal end__actions" style="--i:4">
+          <button class="btn btn--gold" id="restartBtn">Volver al inicio</button>
+          <a class="btn" href="https://yeikod.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Ver otros proyectos de Anderson Correa en una pestaña nueva">
+            Otros proyectos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
